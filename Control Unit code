@@ -1,0 +1,47 @@
+int a=0;
+int b=0;
+int c=0;
+void setup() 
+{
+   pinMode(10,OUTPUT);
+   pinMode(7,OUTPUT); //buzzer
+   pinMode(9,INPUT); //brake switch
+   pinMode(8,INPUT); //ignition switch
+   pinMode(6,INPUT); //shutdown circuit 
+}
+
+void loop() 
+{
+  int appsA=analogRead(A0);
+  int appsB=analogRead(A1);
+  float appsAvalue= appsA*5.0/1024.0;
+  float appsBvalue= appsB*5.0/1024.0;
+  if(digitalRead(8)==LOW&&b==0)
+  {
+    digitalWrite(7,HIGH);
+    delay(2000);
+    b=1;
+    digitalWrite(7,LOW);
+  }
+  if(b==1)
+  {
+    if(appsAvalue>=appsBvalue*110/100||appsBvalue>=appsAvalue*110/100||appsAvalue<=appsBvalue*90/100||appsBvalue<=appsAvalue*90/100)
+    {
+      digitalWrite(10,LOW);
+      return;
+    }
+    else if(digitalRead(9)==LOW||appsA<52||appsB<52)
+    {
+      digitalWrite(10,LOW);
+    }
+    else
+    {
+       digitalWrite(10,HIGH);
+    }
+  }
+  if(digitalRead(6)!=LOW)
+  {
+    digitalWrite(10,LOW);
+    b=0;
+  }
+}
