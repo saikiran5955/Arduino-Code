@@ -1,0 +1,119 @@
+ int upButton=10;
+ int downButton=11;
+ int ledRed=12;
+ int ledGreen=13;
+void setup(){
+  pinMode(upButton,INPUT);
+  pinMode(downButton,INPUT);
+  pinMode(ledRed,OUTPUT);
+  pinMode(ledGreen,OUTPUT);
+  pinMode(3,INPUT);
+  pinMode(4,INPUT);
+  pinMode(5,INPUT);
+  pinMode(6,INPUT);
+  pinMode(7,INPUT);
+  pinMode(8,INPUT);
+  pinMode(9,INPUT);
+  Serial.begin(9600);
+}
+void loop(){
+  if(digitalRead(3)==LOW)
+    {
+   //  Serial.print("N");
+   if(digitalRead(upButton)==LOW)
+   {digitalWrite(13,HIGH);
+   delay(200);
+   digitalWrite(13,LOW);
+   Serial.println("1");
+   }
+   else if(digitalRead(downButton)==LOW)
+   {
+    Serial.println("N");
+   }
+  }
+  else if(digitalRead(4)==LOW)
+  {if(digitalRead(upButton)==LOW)
+  {digitalWrite(12,HIGH);
+  delay(350);
+  digitalWrite(12,LOW);
+  Serial.println("2");
+  }
+  else if(digitalRead(downButton)==LOW)
+  {digitalWrite(12,HIGH);
+  delay(200);
+  digitalWrite(12,LOW);
+  Serial.println("N");
+  }
+  }
+ else if(digitalRead(5)==LOW)
+  {if(digitalRead(upButton)==LOW)
+  {digitalWrite(12,HIGH);
+  delay(200);
+  digitalWrite(12,LOW);
+  Serial.println("3");
+  }
+  else if(digitalRead(downButton)==LOW)
+  {digitalWrite(11,HIGH);
+  delay(350);
+  digitalWrite(11,LOW);
+  Serial.println("1");
+  }
+  }
+   else if(digitalRead(6)==LOW)
+  {if(digitalRead(upButton)==LOW)
+  {digitalWrite(12,HIGH);
+  delay(200);
+  digitalWrite(12,LOW);
+  Serial.println("4");
+  }
+  else if(digitalRead(downButton)==LOW)
+  {digitalWrite(13,HIGH);
+  delay(200);
+  digitalWrite(13,LOW);
+  Serial.println("2");
+  }
+  }
+   else if(digitalRead(7)==LOW)
+  {if(digitalRead(upButton)==LOW)
+  {digitalWrite(12,HIGH);
+  delay(200);
+  digitalWrite(12,LOW);
+  Serial.println("5");
+  }
+  else if(digitalRead(downButton)==LOW)
+  {digitalWrite(11,HIGH);
+  delay(200);
+  digitalWrite(11,LOW);
+  Serial.println("3");
+  }
+  }
+ else if(digitalRead(8)==LOW)
+  {if(digitalRead(upButton)==LOW)
+  {digitalWrite(12,HIGH);
+  delay(200);
+  digitalWrite(12,LOW);
+  Serial.println("6");
+  }
+  else if(digitalRead(downButton)==LOW)
+  {digitalWrite(11,HIGH);
+  delay(200);
+  digitalWrite(11,LOW);
+  Serial.println("4");
+  }
+  }
+   else if(digitalRead(9)==LOW)
+  {if(digitalRead(upButton)==LOW)
+  { Serial.println("6"); }
+  else if(digitalRead(downButton)==LOW)
+  {digitalWrite(11,HIGH);
+  delay(200);
+  digitalWrite(11,LOW);
+  Serial.println("5");
+  }
+  }
+
+
+
+
+   } 
+   
