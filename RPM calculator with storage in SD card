@@ -1,0 +1,42 @@
+#include<SD.h>
+File myFile;
+const byte HallPin=2;
+int a=0;
+long rev=0;
+void setup() {
+  Serial.begin(9600);
+ Serial.println("initializing the sd card...");
+  //if(!SD.begin(10))
+  //{
+    //Serial.println("initialization failed");
+   // return;
+  //}
+ // Serial.println("Initialization complete");
+  //delay(2000);
+  pinMode(HallPin,INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(HallPin),rpm_cal,RISING);
+}
+void loop() {
+  a = millis();
+ if (a%1000 == 0)
+  {
+    Serial.print("freq:");
+    Serial.print(rev);
+    rev=0;
+    
+   // myFile=SD.open("test.txt",FILE_WRITE);
+    //if(myFile)
+    //{
+     // myFile.println(RPM);
+      //Serial.println(RPM);
+      //myFile.close();
+    //}
+    //else{
+      //Serial.println("error opening file");
+    //}
+  }
+}
+void rpm_cal()
+{
+  rev++;
+}
